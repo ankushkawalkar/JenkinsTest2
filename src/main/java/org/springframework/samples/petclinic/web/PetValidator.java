@@ -35,19 +35,20 @@ public class PetValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         Pet pet = (Pet) obj;
         String name = pet.getName();
+	String req="required";
         // name validation
         if (!StringUtils.hasLength(name)) {
-            errors.rejectValue("name", "required", "required");
+            errors.rejectValue("name", req, req);
         }
 
         // type validation
         if (pet.isNew() && pet.getType() == null) {
-            errors.rejectValue("type", "required", "required");
+            errors.rejectValue("type", req, req);
         }
 
         // birth date validation
         if (pet.getBirthDate() == null) {
-            errors.rejectValue("birthDate", "required", "required");
+            errors.rejectValue("birthDate", req, req);
         }
     }
 
