@@ -35,7 +35,7 @@ public class PetValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         Pet pet = (Pet) obj;
         String name = pet.getName();
-	//String req="required";
+	String REQUIRED="required";
         // name validation
         if (!StringUtils.hasLength(name)) {
             errors.rejectValue("name", REQUIRED, REQUIRED);
@@ -43,7 +43,7 @@ public class PetValidator implements Validator {
 
         // type validation
         if (pet.isNew() && pet.getType() == null) {
-            errors.rejectValue("type", req, REQUIRED);
+            errors.rejectValue("type", REQUIRED, REQUIRED);
         }
 
         // birth date validation
